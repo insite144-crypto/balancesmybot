@@ -189,7 +189,7 @@ async def main():
     dp.message.register(cmd_minus, Command("минус"))
     dp.message.register(cmd_cheats, Command("cheats"))
 
-        dp.message.register(handle_number)
+    dp.message.register(handle_number)
 
     logger.info("Бот запущен...")
     await dp.start_polling(bot)
