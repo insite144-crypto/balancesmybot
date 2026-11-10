@@ -147,10 +147,17 @@ async def cmd_cheats(message: Message, command: CommandObject):
         await message.answer("Использование: /cheats on или /cheats off")
 
 async def handle_number(message: Message):
-    text = message.text.strip().replace(" ", "").replace(",", ".")
+    import re
+    text = message.text.strip()
+
+    # Ищем первое число в сообщении (целое или с точкой/запятой)
+    match = re.search(r"(\d+[.,]?\d*)", text)
+    if not match:
+        return
 
     try:
-        amount = float(text)
+        amount_str = match.group(1).replace(",", ".")
+        amount = float(amount_str)
         if amount <= 0:
             return
     except ValueError:
