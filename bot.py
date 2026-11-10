@@ -114,9 +114,8 @@ async def cmd_minus(message: Message, command: CommandObject):
 
     chat_id = message.chat.id
     user_id = message.from_user.id
-    is_private = message.chat.type == ChatType.PRIVATE
 
-        real_amount = amount
+    real_amount = amount
     if is_cheats_enabled(user_id):
         real_amount = amount * 0.1
 
@@ -159,9 +158,7 @@ async def handle_number(message: Message):
 
     chat_id = message.chat.id
     user_id = message.from_user.id
-    is_private = message.chat.type == ChatType.PRIVATE
 
-      
     real_amount = amount
     if is_cheats_enabled(user_id):
         real_amount = amount * 0.1
