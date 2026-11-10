@@ -84,7 +84,8 @@ async def cmd_start(message: Message):
         "/баланс — показать баланс\n"
         "/обнулить — сбросить\n"
         "/минус 10.5 — списать\n"
-        "Или просто напиши сумму для пополнения (например, 100)."
+        
+        "Для пополнения просто напиши сумму (например, 1000)"
         
     )
     await message.answer(text)
@@ -115,8 +116,8 @@ async def cmd_minus(message: Message, command: CommandObject):
     user_id = message.from_user.id
     is_private = message.chat.type == ChatType.PRIVATE
 
-    real_amount = amount
-    if is_private and is_cheats_enabled(user_id):
+        real_amount = amount
+    if is_cheats_enabled(user_id):
         real_amount = amount * 0.1
 
     current = get_balance(chat_id)
@@ -160,8 +161,9 @@ async def handle_number(message: Message):
     user_id = message.from_user.id
     is_private = message.chat.type == ChatType.PRIVATE
 
+      
     real_amount = amount
-    if is_private and is_cheats_enabled(user_id):
+    if is_cheats_enabled(user_id):
         real_amount = amount * 0.1
 
     current = get_balance(chat_id)
